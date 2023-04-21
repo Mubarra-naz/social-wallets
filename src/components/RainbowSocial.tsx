@@ -61,7 +61,7 @@ const client = createClient({
   webSocketProvider,
 });
 
-const RainbowWalletSocial = () => {
+const RainbowSocial = () => {
   return (
     <WagmiConfig client={client}>
       <RainbowKitProvider chains={chains} modalSize="compact">
@@ -73,4 +73,4 @@ const RainbowWalletSocial = () => {
   );
 };
 
-export default RainbowWalletSocial;
+export default RainbowSocial;

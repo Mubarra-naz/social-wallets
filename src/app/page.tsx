@@ -1,9 +1,9 @@
-import RainbowWalletSocial from "@/components/RainbowWalletSocial";
+import RainbowWallet from "@/components/RainbowWallet";
+import RainbowSocial from "@/components/RainbowSocial";
 import React from "react";
 import Link from "next/link";
 import { BiLinkExternal } from "react-icons/bi";
 import Web3ModalWallet from "@/components/Web3Modal";
-import RainbowWallet from "@/components/Rainbowwallet";
 
 const page = () => {
   return (

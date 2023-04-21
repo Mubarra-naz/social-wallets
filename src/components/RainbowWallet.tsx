@@ -8,12 +8,18 @@ import {
 import { polygonMumbai, goerli } from "wagmi/chains";
 import { WagmiConfig, configureChains, createClient } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 const defaultProjectId: string = process.env.PROJECT_ID || "";
 const allowedChains = [polygonMumbai, goerli];
 
 const { chains, provider, webSocketProvider } = configureChains(allowedChains, [
   publicProvider(),
+  jsonRpcProvider({
+    rpc: () => ({
+      http: process.env.RPC_URL || "",
+    }),
+  }),
 ]);
 
 const { connectors } = getDefaultWallets({

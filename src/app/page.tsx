@@ -1,124 +1,180 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import RainbowWalletSocial from "@/components/RainbowWalletSocial";
+import React from "react";
+import Link from "next/link";
+import { BiLinkExternal } from "react-icons/bi";
+import Web3ModalWallet from "@/components/Web3Modal";
+import RainbowWallet from "@/components/Rainbowwallet";
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const page = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="flex flex-col justify-center items-center gap-y-8 pt-10 text-center w-[100%]">
+      <h1 className="text-5xl py-8 text-emerald-600">
+        Account Abstraction Baiscs
+      </h1>
+      <h5 className="text-xl pb-8 max-w-[90%]">
+        Web3 Basic Concepts(Account Abstraction, ERC-4337), AA Transactions,
+        Mint NFTs, Social Wallets
+      </h5>
+      <div className="flex flex-col md:flex-row justify-center md:justify-between text-start flex-shrink max-w-[95%]">
+        <div className="section">
+          <h3>Account Creation & Transactions</h3>
+          <div>
+            <span className="font-semibold"> Abstract Account: </span>
+            <Link
+              // href="https://mumbai.polygonscan.com/address/0xF577d7FD7a390B53a9D462Eb15D0Cb296b635B90"
+              href="https://goerli.etherscan.io/address/0xF577d7FD7a390B53a9D462Eb15D0Cb296b635B90"
+              target="_blank"
+              className="flex items-center gap-1"
+            >
+              0xF577d7FD7a390B53a9D462Eb15D0Cb296b635B90
+              <BiLinkExternal color="#04785766" />
+            </Link>
+          </div>
+          <ul>
+            <li>
+              <Link
+                href="https://goerli.etherscan.io/tx/0x35bd327eaf919a6d8c19ed3488d4823fc4fe88fab8cce77671c20ef62b00d3da"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                Funded ETH(via MetaMask)
+                <BiLinkExternal color="#04785766" />
+                {/* 0x35bd327eaf919a6d8c19ed3488d4823fc4fe88fab8cce77671c20ef62b00d3da */}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://goerli.etherscan.io/tx/0xd23a858e01d759d6719cac29cdbfba28dc2e4d76a64d0f095476ffc72f3cae04"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                ETH Transaction
+                <BiLinkExternal color="#04785766" />
+                {/* 0xd23a858e01d759d6719cac29cdbfba28dc2e4d76a64d0f095476ffc72f3cae04 */}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://goerli.etherscan.io/tx/0xe3335811b0d3739dc91763800d2ab8015c534bae0a44be22985b4f38ff78dd9f"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                ETH Batch Transaction
+                <BiLinkExternal color="#04785766" />
+                {/* 0xe3335811b0d3739dc91763800d2ab8015c534bae0a44be22985b4f38ff78dd9f */}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://goerli.etherscan.io/tx/0x869f42894edb59c3646398bff3203cf68513f9aa238935720efd725562732459"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                Funded ERC-20 Tokens(via Polygon Faucet)
+                <BiLinkExternal color="#04785766" />
+                {/* 0x869f42894edb59c3646398bff3203cf68513f9aa238935720efd725562732459 */}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://goerli.etherscan.io/tx/0x0904be7bd01416cd33c7ef6a288b6e2f31f007b4f704d9bcd48c94465ca74bae"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                ERC-20 Transaction
+                <BiLinkExternal color="#04785766" />
+                {/* 0x0904be7bd01416cd33c7ef6a288b6e2f31f007b4f704d9bcd48c94465ca74bae */}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://goerli.etherscan.io/tx/0x9d3432e480c626c1703fe532bbe2b6b1ef06199c36833c0c336d5b846c14ca29"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                ERC-20 Batch Transaction
+                <BiLinkExternal color="#04785766" />
+                {/* 0x9d3432e480c626c1703fe532bbe2b6b1ef06199c36833c0c336d5b846c14ca29 */}
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="section">
+          <h3>Mint NFTs</h3>
+          <p className="font-bold">
+            Glassless AA Transactions, Bundle AA Transactions, Mint NFT(ERC-721)
+            Tokens
+          </p>
+          <div>
+            <span className="font-semibold">Smart Contract: </span>
+            <Link
+              href="https://mumbai.polygonscan.com/address/0x352e004976712eDf4257061dA812bA06b0f01377"
+              target="_blank"
+              className="flex items-center gap-1"
+            >
+              0x352e004976712eDf4257061dA812bA06b0f01377
+              <BiLinkExternal color="#04785766" />
+            </Link>
+          </div>
+          <ul>
+            <li>
+              <Link
+                href="https://mumbai.polygonscan.com/tx/0xa6dc19ff84eb5d63db0aa9b35d3c764254b1b8ab13c524944a9d50da59f1d9da"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                Glassless Transaction
+                <BiLinkExternal color="#04785766" />
+                {/* 0xa6dc19ff84eb5d63db0aa9b35d3c764254b1b8ab13c524944a9d50da59f1d9da */}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://mumbai.polygonscan.com/tx/0x2bc97286b7448830d4530e07ad74f22176af47b5eaa9b601eeb4da2257814f9d"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
+                Bundle Transaction
+                <BiLinkExternal color="#04785766" />
+                {/* 0x2bc97286b7448830d4530e07ad74f22176af47b5eaa9b601eeb4da2257814f9d */}
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="py-5">
+        <h3>Social Wallets to try out</h3>
+        <div className="flex justify-around max-w-[100%]">
+          <table className="max-w-[100%] table-auto">
+            <tbody>
+              <tr>
+                <td>
+                  <RainbowWalletSocial />
+                </td>
+                <td>
+                  <Web3ModalWallet />
+                </td>
+                <td>
+                  <RainbowWallet />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p className="font-bold">Rainbow Social Connect</p>
+                </td>
+                <td>
+                  <p className="font-bold">Web3Modal</p>
+                </td>
+                <td>
+                  <p className="font-bold">Rainbow Wallet</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </div>
+  );
+};
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default page;

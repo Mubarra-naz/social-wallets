@@ -149,7 +149,7 @@ const page = () => {
             <tbody>
               <tr>
                 <td>
-                  <RainbowWalletSocial />
+                  <RainbowSocial />
                 </td>
                 <td>
                   <Web3ModalWallet />
